@@ -17,4 +17,4 @@ You can run the files locally by doing the following:
 There are two additonal specs in the Initial Entries suite:
 
 - A test to check that entry headings are being populated with text
-- A **future-feature** test to check that entry authors are being set
+- A **future-feature** test to check that entry authors elements are being populated with text
