@@ -56,7 +56,8 @@ $(function() {
 
     describe('Initial Entries', function(){
 
-        beforeEach(function(done) {
+        // Caution: Calling loadFeed ONCE for all specs in suite.
+        beforeAll(function(done) {
             loadFeed(0, done);
         });
 
@@ -66,6 +67,35 @@ $(function() {
             expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
+
+
+        /** Additional specs above required **/
+
+        /* First entry has heading that has text. */
+        it('first .entry element has an <h2> that has text',
+            function(done) {
+                expect($('.entry h2').length).toBeGreaterThan(0);
+
+                if ($('.entry h2').length > 0) {
+                    expect($('.entry h2').text()).not.toBe('');
+                }
+
+                done();
+        });
+
+        /* First entry has .author elements that has text. */
+        it('first .entry element has an .author element that has text',
+            function(done) {
+                expect($('.entry .author').length).toBeGreaterThan(0);
+
+                if($('.entry .author').length > 0) {
+                  expect($('.entry .author')[0].text()).not.toBe('');
+                }
+
+                done();
+        });
+
+
     });
 
     describe('New Feed Selection', function() {
@@ -75,7 +105,7 @@ $(function() {
 
         beforeEach(function(done) {
             previousContent = $feed.html();
-            loadFeed(1, done);
+            loadFeed(2, done);
         });
 
         /* loadFeed() changes the feed content. */
