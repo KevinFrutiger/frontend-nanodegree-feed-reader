@@ -11,3 +11,10 @@ You can run the files locally by doing the following:
 1. Download the .zip file using the **Download ZIP** button located in the GitHub sidebar (or clone the repository).
 2. Unzip the file
 3. Point your browser to index.html in files that you just unzipped.
+
+## Additional Tests (above required)
+
+There are two additonal specs in the Initial Entries suite:
+
+- A test to check that entry headings are being populated with text
+- A **future-feature** test to check that entry authors are being set
