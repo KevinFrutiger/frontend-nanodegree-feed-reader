@@ -7,11 +7,13 @@
 $(function() {
     describe('RSS Feeds', function() {
 
+        /* allFeeds is defined and not empty. */
         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toBe(0);
         });
 
+        /* Every feed has a url property that's not empty. */
         it('have property "URL" defined and it\'s not empty', function() {
             for(var key in allFeeds) {
                 expect(allFeeds[key].url).toBeDefined();
@@ -19,6 +21,7 @@ $(function() {
             }
         });
 
+        /* Every feed has a name property that's not empty. */
         it('have property "name" defined and it\'s not empty', function() {
             for (var key in allFeeds) {
                 expect(allFeeds[key].name).toBeDefined();
@@ -31,10 +34,12 @@ $(function() {
 
         var $body = $('body');
 
+        /* The menu is hidden by default. */
         it ('is hidden by default', function() {
             expect($body.hasClass('menu-hidden')).toBe(true);
         });
 
+        /* The menu displays when the menu icon is clicked. */
         it ('shows when menu icon clicked ' +
             'and hides when menu icon clicked again', function() {
 
@@ -55,7 +60,8 @@ $(function() {
             loadFeed(0, done);
         });
 
-        it('at least one .entry element in the .feeder element ' +
+        /* loadFeed() adds at least one entry under the feed element. */
+        it('at least one .entry element in the .feed element ' +
             'after loadFeed() runs', function(done) {
             expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
@@ -72,6 +78,7 @@ $(function() {
             loadFeed(1, done);
         });
 
+        /* loadFeed() changes the feed content. */
         it('loadFeed() changes feed content', function(done) {
             expect($feed.html()).not.toEqual(previousContent);
             done();
