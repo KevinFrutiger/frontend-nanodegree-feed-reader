@@ -98,17 +98,32 @@ $(function() {
 
     describe('New Feed Selection', function() {
 
-        var previousContent = '';
+        var content1 = '';
+        var content2 = '';
         var $feed = $('.feed');
 
         beforeEach(function(done) {
-            previousContent = $feed.html();
-            loadFeed(2, done);
+            // Load a feed
+            loadFeed(2, function() {
+                // Store content
+                content1 = $feed.html();
+                // Load a different feed
+                loadFeed(3, function() {
+                    // Store new content
+                    content2 = $feed.html();
+                    // Run the spec
+                    done();
+                });
+            });
         });
 
         /* loadFeed() changes the feed content. */
         it('loadFeed() changes feed content', function(done) {
-            expect($feed.html()).not.toEqual(previousContent);
+            expect(content1).not.toBe('');
+            expect(content2).not.toBe('');
+
+            expect(content2).not.toEqual(content1);
+
             done();
         });
     });
