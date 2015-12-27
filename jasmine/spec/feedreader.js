@@ -72,29 +72,27 @@ $(function() {
         /** Additional specs above required **/
 
         /* First entry has heading that has text. */
-        it('first .entry element has an <h2> that has text',
-            function(done) {
-                expect($('.entry h2').length).toBeGreaterThan(0);
+        it('first .entry element has an <h2> that has text', function(done) {
+            expect($('.entry h2').length).toBeGreaterThan(0);
 
-                if ($('.entry h2').length > 0) {
-                    expect($('.entry h2').text()).not.toBe('');
-                }
+            if ($('.entry h2').length > 0) {
+                expect($('.entry h2').first().text()).not.toBe('');
+            }
 
-                done();
+            done();
         });
 
-        /* First entry has .author elements that has text. */
+        /* First entry has an .author element that has text. */
         it('first .entry element has an .author element that has text',
             function(done) {
                 expect($('.entry .author').length).toBeGreaterThan(0);
 
                 if($('.entry .author').length > 0) {
-                  expect($('.entry .author')[0].text()).not.toBe('');
+                    expect($('.entry .author').first().text()).not.toBe('');
                 }
 
                 done();
         });
-
 
     });
 
